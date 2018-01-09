@@ -83,5 +83,35 @@ $app->post("/membresListe", function() use ($app){
 
 
 
+/***********************************************************************GARY************************************************************************/
 
 
+//*** Route Register Expert ***\\
+$app->get('/registerExpert', function() use($app) {
+    return $app['twig']->render('basic/registerExpert.html.twig');
+})->bind("register");
+$app->post('/registerExpert', "Webforce\Controller\IndexController::registerExpertAction");
+//*** Route ForgottenPassword ***\\
+$app->get('/forgottenPassword', function() use($app) {
+    return $app['twig']->render('basic/forgotten.html.twig');
+})->bind("forgotPassword");
+$app->post('/forgottenPassword', function() use($app) {
+    sendMail('contact@mmmh.fr', 'this is the html message body', $app);
+    return $app['twig']->render('basic/forgotten.html.twig');
+});
+//*** Route Profil ***\\
+$app->get('/profil', function () use ($app) {
+    return $app['twig']->render('basic/profil.html.twig', array());
+})->bind("profil");
+$app->post('/', function () use ($app) {
+    return $app['twig']->render('basic/profil.html.twig', array());
+});
+//*** Route Réponse ***\\
+$app->get('/reponsesExpert', function() use($app) {
+    return $app['twig']->render('basic/registerExpert.html.twig');
+})->bind("reponsesExpert");
+$app->post('/registerExpert', "Webforce\Controller\IndexController::reponsesExpertAction");
+//*** Route MesRéponses ***\\
+$app->get('/mesReponses', function () use ($app) {
+    return $app['twig']->render('basic/mesReponses.html.twig', array());
+})->bind("mesReponses");
