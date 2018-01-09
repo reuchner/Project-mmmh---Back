@@ -12,6 +12,7 @@ class ComposerStaticInit16b0c0a1b2ea2e57e85d34ee4db3980c
         '023d27dca8066ef29e6739335ea73bad' => __DIR__ . '/..' . '/symfony/polyfill-php70/bootstrap.php',
         '6a47392539ca2329373e0d33e1dba053' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/bootstrap.php',
         'bd9634f2d41831496de0d3dfe4c94881' => __DIR__ . '/..' . '/symfony/polyfill-php56/bootstrap.php',
+        '3a37ebac017bc098e9a86b35401e7a68' => __DIR__ . '/..' . '/mongodb/mongodb/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -49,6 +50,14 @@ class ComposerStaticInit16b0c0a1b2ea2e57e85d34ee4db3980c
         array (
             'Psr\\Log\\' => 8,
             'Psr\\Container\\' => 14,
+        ),
+        'M' => 
+        array (
+            'MongoDB\\' => 8,
+        ),
+        'C' => 
+        array (
+            'Corllete\\SilexMongoDB\\' => 22,
         ),
     );
 
@@ -156,6 +165,14 @@ class ComposerStaticInit16b0c0a1b2ea2e57e85d34ee4db3980c
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
+        'MongoDB\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mongodb/mongodb/src',
+        ),
+        'Corllete\\SilexMongoDB\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/corllete/silex-mongodb-provider/src',
         ),
     );
 

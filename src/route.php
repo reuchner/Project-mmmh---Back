@@ -35,9 +35,9 @@ $app->error(function (\Exception $e, Request $request, $code) use ($app) {
 
 $app->get('/registerEquipe', function () use ($app){
     return $app['twig']->render('basic/register.html.twig', array());
-})->bind("register");
+})->bind("registerEquipe");
 
-$app->post("/registerEquipe", "\IndexController::registerAction");
+$app->post("/registerEquipe", "Equipe\controller\IndexController::registerAction");
 
 // *************  route mdp oublié ************ //
 
@@ -45,10 +45,8 @@ $app->get("/forgottenPassword", function() use ($app){
     return $app["twig"]->render("basic/forgotten.html.twig");
 })->bind("forgottenPassword");
 
-$app->post("/forgottenPassword", function() use ($app){
-    sendMail('antoineduclos1994@gmail.com', "This is the HTML message body <b>in bold!</b>", $app);
-    return $app["twig"]->render("basic/forgotten.html.twig");
-});
+$app->post("/forgottenPassword" , "Equipe\controller\indexController::verifEmail");
+
 
 // *************  route questions ************ //
 
@@ -56,32 +54,60 @@ $app->get("/questions", function() use ($app){
     return $app['twig']->render("basic/questions.html.twig", array());
 })->bind("questions");
 
-$app->post("/questions", function() use ($app){
-    return $app['twig']->render("basic/questions.html.twig", array());
-});
+$app->post("/questions" , "Equipe\controller\EquipeQuestionsController::recupQuestions");
+
 
 // *************  route liste des experts ************ //
 
 $app->get("/expertsListe", function() use ($app){
     return $app['twig']->render("basic/expertsListe.html.twig", array());
-})->bind("questions");
+})->bind("expertsListe");
 
-$app->post("/expertsListe", function() use ($app){
-    return $app['twig']->render("basic/expertsListe.html.twig", array());
-});
+$app->post("/expertsListe" , "Equipe\controller\EquipeListeController::listingExperts");
 
 // *************  route liste des membres ************ //
 
 $app->get("/membresListe", function() use ($app){
     return $app['twig']->render("basic/expertsListe.html.twig", array());
-})->bind("questions");
+})->bind("membreListe");
 
-$app->post("/membresListe", function() use ($app){
-    return $app['twig']->render("basic/membresListe.html.twig", array());
+$app->post("/membreListe" , "Equipe\controller\EquipeListeController::listingMembres");
+
+
+
+
+
+
+
+
+
+
+
+
+/***********************************************************************GARY************************************************************************/
+
+
+//*** Route Register Expert ***\\
+$app->get('/registerExpert', function() use($app) {
+    return $app['twig']->render('basic/registerExpert.html.twig');
+})->bind("register");
+$app->post('/registerExpert', "Webforce\Controller\IndexController::registerExpertAction");
+
+//*** Route Profil ***\\
+$app->get('/profil', function () use ($app) {
+    return $app['twig']->render('basic/profil.html.twig', array());
+})->bind("profil");
+$app->post('/', function () use ($app) {
+    return $app['twig']->render('basic/profil.html.twig', array());
 });
 
+//*** Route Réponse ***\\
+$app->get('/reponsesExpert', function() use($app) {
+    return $app['twig']->render('basic/registerExpert.html.twig');
+})->bind("reponsesExpert");
+$app->post('/registerExpert', "Webforce\Controller\IndexController::reponsesExpertAction");
 
-
-
-
-
+//*** Route MesRéponses ***\\
+$app->get('/mesReponses', function () use ($app) {
+    return $app['twig']->render('basic/mesReponses.html.twig', array());
+})->bind("mesReponses");

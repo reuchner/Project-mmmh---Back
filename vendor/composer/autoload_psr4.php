@@ -32,4 +32,6 @@ return array(
     'Silex\\' => array($vendorDir . '/silex/silex/src/Silex'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
+    'MongoDB\\' => array($vendorDir . '/mongodb/mongodb/src'),
+    'Corllete\\SilexMongoDB\\' => array($vendorDir . '/corllete/silex-mongodb-provider/src'),
 );
