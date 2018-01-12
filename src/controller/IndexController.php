@@ -14,7 +14,7 @@ use Silex\Application;
             $pseudo = htmlspecialchars(trim($request->request->get["pseudo"]));
             $password = htmlspecialchars(trim($request->request->get["password"]));
             $email = htmlspecialchars(trim($request->request->get["email"]));
-            $position = htmlspecialchars(trim($request->request->get["poste"]));
+            $position = htmlspecialchars(trim($request->request->get["position"]));
             $phone = htmlspecialchars(trim($request->request->get["phone"]));
 
             if(!filter_var($email, FILTER_VALIDATE_EMAIL)) // verif de l'email valide
